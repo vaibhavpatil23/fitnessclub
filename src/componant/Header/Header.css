@@ -2,19 +2,18 @@
     display: flex;
     justify-content: space-between;
 }
-.logo{
+.Logo{
     width: 10rem;
     height: 3rem;
-    color: black;
 }
 .header-menu{
     list-style: none;
     display: flex;
     gap: 2rem;
-    color: black;
+    color: white;
 }
-.header-menu>li{
-    cursor: pointer;
-}
+
 .header-menu>li:hover{
-color: red;}
+    cursor: pointer;
+
+color:var(--orange);}
