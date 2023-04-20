@@ -1,8 +1,27 @@
-import React,{ useRef} from "react";
+import React, { useRef } from "react";
 import "./Join.css";
-import emailjs from '@emailjs/browser'
+import emailjs from "@emailjs/browser";
 const Join = () => {
-    const from = useRef()
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_f9mpiz8",
+        "template_vi8cvxq",
+        form.current,
+        "UNmsro397C6eBeVvm"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
   return (
     <div className="Join" id="join-us">
       <div className="left-j">
@@ -17,14 +36,16 @@ const Join = () => {
         </div>
       </div>
       <div className="right-j">
-
-        <form ref={form} className="email-container">
-            <input type="email" name="user_email" placeholder="Enter your Email address" />
-            <button className="btn btn-j">Join now</button>
+        <form ref={form} className="email-container" onSubmit={sendEmail}>
+          <input
+            type="email"
+            name="from_name"
+            placeholder="Enter your Email address"
+          />
+          <button className="btn btn-j">Join now</button>
         </form>
       </div>
     </div>
   );
 };
-
 export default Join;
